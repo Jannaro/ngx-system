@@ -1,0 +1,39 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Ngx-Charts - Angular2 and D3js Charting Framework test</title>
+    <base href="/">
+
+    <!-- IE -->
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta http-equiv="cleartype" content="on">
+
+    <!-- Add to Home Screen: iOS
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Swimlane"> -->
+
+    <!-- Add to Home Screen: Android
+    <meta name="mobile-web-app-capable" content="yes"> -->
+
+    <!-- <link rel="stylesheet" type="text/css" href="./src/ngx-charts.css">
+    <link rel="stylesheet" type="text/css" href="./src/app/app.css"> -->
+
+</head>
+<body>
+    <app>Loading...</app>
+
+    <!-- 1. Load libraries -->
+    <!-- Polyfill(s) for older browsers -->
+    <script src="node_modules/core-js/client/shim.min.js"></script>
+    <script src="node_modules/zone.js/dist/zone.js"></script>
+    <script src="node_modules/reflect-metadata/Reflect.js"></script>
+    <script src="node_modules/systemjs/dist/system.src.js"></script>
+    <!-- 2. Configure SystemJS -->
+    <script src="systemjs.config.js"></script>
+    <script>
+        System.import('app').catch(function (err) { console.error(err); });
+    </script>
+</body>
+</html>
