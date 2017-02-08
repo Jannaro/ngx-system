@@ -3,7 +3,7 @@
 var gulp = require('gulp');
 var sass = require('gulp-sass');
 var del = require('del');
-//var rename = require("gulp-rename");
+var runSequence = require('run-sequence');
  
 gulp.task('clean', function () {
     return del([
@@ -14,6 +14,11 @@ gulp.task('clean', function () {
     ]);
 });
 
+gulp.task('copyHtml', function () {
+  return gulp.src('./demo/**/*.html')
+    .pipe(gulp.dest('./dist/demo'));
+});
+ 
 gulp.task('sass', function () {
   return gulp.src('./src/**/*.scss')
     .pipe(sass.sync().on('error', sass.logError))
@@ -26,3 +31,6 @@ gulp.task('sassdemo', function () {
     .pipe(gulp.dest('./dist/demo'));
 });
  
+gulp.task('build', function (done) {
+    return runSequence('copyHtml', 'sass', 'sassdemo', done);
+});

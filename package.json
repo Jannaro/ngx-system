@@ -2,7 +2,7 @@
     "name": "ngx-system",
     "license": "MIT",
     "version": "4.1.0",
-    "description": "Angular2 + D3 + SystemJS tsCharting Library test",
+    "description": "Angular2 + D3 + SystemJS Charting Library test",
     "devDependencies": {
         "@types/core-js": "0.9.35",
         "@types/d3-array": "1.0.7",
@@ -30,6 +30,8 @@
         "gulp": "^3.9.1",
         "gulp-rename": "^1.2.2",
         "gulp-sass": "^3.1.0",
+        "gulp-typescript": "~3.1.4",
+        "run-sequence": "~1.2.2",
         "http-server": "^0.9.0",
         "lite-server": "^2.2.2",
         "node-sass": "4.5.0",
@@ -58,7 +60,7 @@
         "zone.js": "0.7.4"
     },
     "scripts": {
-        "start": "tsc && concurrently \"tsc -w\" \"lite-server\" ",
+        "start": "gulp build && tsc && concurrently \"tsc -w\" \"lite-server\" ",
         "lite": "lite-server",
         "tsc": "tsc",
         "tsc:w": "tsc -w",
