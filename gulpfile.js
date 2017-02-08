@@ -20,17 +20,11 @@ gulp.task('copyHtml', function () {
 });
  
 gulp.task('sass', function () {
-  return gulp.src('./src/**/*.scss')
+  return gulp.src('./+(src|demo)/**/*.scss')
     .pipe(sass.sync().on('error', sass.logError))
-    .pipe(gulp.dest('./dist/src'));
-});
- 
-gulp.task('sassdemo', function () {
-  return gulp.src('./demo/**/*.scss')
-    .pipe(sass.sync().on('error', sass.logError))
-    .pipe(gulp.dest('./dist/demo'));
+    .pipe(gulp.dest('./dist'));
 });
  
 gulp.task('build', function (done) {
-    return runSequence('copyHtml', 'sass', 'sassdemo', done);
+    return runSequence('copyHtml', 'sass', done);
 });
