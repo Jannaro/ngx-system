@@ -1,5 +1,6 @@
 import 'core-js';
 import 'zone.js/dist/zone';
+declare function require(name: string);
 // import 'ts-helpers';
 
 // angular

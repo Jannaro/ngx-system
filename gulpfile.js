@@ -4,7 +4,11 @@ var gulp = require('gulp');
 var sass = require('gulp-sass');
 var del = require('del');
 var runSequence = require('run-sequence');
- 
+var ts = require("gulp-typescript");
+var sourcemaps = require('gulp-sourcemaps');
+
+var tsProject = ts.createProject("tsconfig.json"); 
+
 gulp.task('clean', function () {
     return del([
       'dist/**/*.js',
@@ -25,6 +29,24 @@ gulp.task('sass', function () {
     .pipe(gulp.dest('./dist'));
 });
  
+ gulp.task('clean-old', function () {
+    return del([
+      'demo/**/*.js',
+      'demo/**/*.js.map',
+      'demo/**/*.css',
+      'src/**/*.js',
+      'src/**/*.js.map',
+      'src/**/*.css'
+    ]);
+});
+
+gulp.task("tsc", function () {
+   var tsResult = gulp.src('./+(src|demo)/**/*.ts')
+      .pipe(tsProject());
+   return [tsResult.dts.pipe(gulp.dest("./release")),
+      tsResult.js.pipe(sourcemaps.write()).pipe(gulp.dest("./dist"))];
+});
+
 gulp.task('build', function (done) {
-    return runSequence('copyHtml', 'sass', done);
+    return runSequence('copyHtml', 'sass', 'tsc', done);
 });
