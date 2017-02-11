@@ -29,19 +29,9 @@ gulp.task('sass', function () {
     .pipe(gulp.dest('./dist'));
 });
  
- gulp.task('clean-old', function () {
-    return del([
-      'demo/**/*.js',
-      'demo/**/*.js.map',
-      'demo/**/*.css',
-      'src/**/*.js',
-      'src/**/*.js.map',
-      'src/**/*.css'
-    ]);
-});
-
 gulp.task("tsc", function () {
    var tsResult = gulp.src('./+(src|demo)/**/*.ts')
+      .pipe(sourcemaps.init())
       .pipe(tsProject());
    return [tsResult.dts.pipe(gulp.dest("./release")),
       tsResult.js.pipe(sourcemaps.write()).pipe(gulp.dest("./dist"))];
