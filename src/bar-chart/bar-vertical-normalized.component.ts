@@ -18,9 +18,6 @@ import { calculateViewDimensions, ViewDimensions } from '../common/view-dimensio
 import { ColorHelper } from '../common/color.helper';
 import { BaseChartComponent } from '../common/base-chart.component';
 import d3 from '../d3';
-declare var module: {
-   id: string;
-};
 
 @Component({
   selector: 'ngx-charts-bar-vertical-normalized',
@@ -75,7 +72,7 @@ declare var module: {
       </svg:g>
     </ngx-charts-chart>
   `,
-  styleUrls: ['../common/base-chart.component.css'],
+  styleUrls: ['../common/base-chart.component.scss'],
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush,
   animations: [
@@ -88,8 +85,7 @@ declare var module: {
         animate(500, style({opacity: 0, transform: 'scale(0)'}))
       ])
     ])
-  ],
-  moduleId: module.id
+  ]
 })
 export class BarVerticalNormalizedComponent extends BaseChartComponent {
 

@@ -20,9 +20,6 @@ import { BaseChartComponent } from '../common/base-chart.component';
 import { calculateViewDimensions, ViewDimensions } from '../common/view-dimensions.helper';
 import d3 from '../d3';
 import { ColorHelper } from '../common/color.helper';
-declare var module: {
-   id: string;
-};
 
 @Component({
   selector: 'ngx-charts-force-directed-graph',
@@ -72,12 +69,11 @@ declare var module: {
     </ngx-charts-chart>
   `,
   styleUrls: [
-    '../common/base-chart.component.css',
-    './force-directed-graph.component.css'
+    '../common/base-chart.component.scss',
+    './force-directed-graph.component.scss'
   ],
   encapsulation: ViewEncapsulation.None,
-  changeDetection: ChangeDetectionStrategy.OnPush,
-  moduleId: module.id
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ForceDirectedGraphComponent extends BaseChartComponent {
 

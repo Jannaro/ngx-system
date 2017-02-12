@@ -9,9 +9,6 @@ import { PositionHelper } from './position/position';
 
 import { StyleTypes } from './style.type';
 import { AlignmentTypes } from './alignment.type';
-declare var module: {
-   id: string;
-};
 
 @Component({
   selector: 'ngx-tooltip-content',
@@ -37,8 +34,7 @@ declare var module: {
     </div>
   `,
   encapsulation: ViewEncapsulation.None,
-  styleUrls: ['./tooltip.component.css'],
-  moduleId: module.id
+  styleUrls: ['./tooltip.component.scss']
 })
 export class TooltipContentComponent implements AfterViewInit {
 

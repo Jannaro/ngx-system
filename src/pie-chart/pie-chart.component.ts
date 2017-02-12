@@ -13,9 +13,6 @@ import { Location } from '@angular/common';
 import { calculateViewDimensions } from '../common/view-dimensions.helper';
 import { ColorHelper } from '../common/color.helper';
 import { BaseChartComponent } from '../common/base-chart.component';
-declare var module: {
-   id: string;
-};
 
 @Component({
   selector: 'ngx-charts-pie-chart',
@@ -46,12 +43,11 @@ declare var module: {
     </ngx-charts-chart>
   `,
   styleUrls: [
-    '../common/base-chart.component.css',
-    './pie-chart.component.css'
+    '../common/base-chart.component.scss',
+    './pie-chart.component.scss'
   ],
   encapsulation: ViewEncapsulation.None,
-  changeDetection: ChangeDetectionStrategy.OnPush,
-  moduleId: module.id
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class PieChartComponent extends BaseChartComponent {
 

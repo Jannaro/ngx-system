@@ -4,16 +4,12 @@ import d3 from '../src/d3';
 import { colorSets } from '../src/utils/color-sets';
 import { single, multi, countries, bubble, generateData, generateGraph } from './data';
 import chartGroups from './chartTypes';
-declare var module: {
-   id: string;
-};
 
 @Component({
   selector: 'app',
   encapsulation: ViewEncapsulation.None,
-  styleUrls: ['./app.component.css'],
-  templateUrl: './app.component.html',
-  moduleId: module.id
+  styleUrls: ['./app.component.scss'],
+  templateUrl: './app.component.html'
 })
 export class AppComponent implements OnInit {
 

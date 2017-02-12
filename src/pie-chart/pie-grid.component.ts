@@ -15,9 +15,6 @@ import { BaseChartComponent } from '../common/base-chart.component';
 import { trimLabel } from '../common/trim-label.helper';
 import { gridLayout } from '../common/grid-layout.helper';
 import { formatLabel } from '../common/label.helper';
-declare var module: {
-   id: string;
-};
 
 @Component({
   selector: 'ngx-charts-pie-grid',
@@ -74,12 +71,11 @@ declare var module: {
     </ngx-charts-chart>
   `,
   styleUrls: [
-    '../common/base-chart.component.css',
-    './pie-grid.component.css'
+    '../common/base-chart.component.scss',
+    './pie-grid.component.scss'
   ],
   encapsulation: ViewEncapsulation.None,
-  changeDetection: ChangeDetectionStrategy.OnPush,
-  moduleId: module.id
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class PieGridComponent extends BaseChartComponent {
   

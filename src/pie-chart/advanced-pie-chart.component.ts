@@ -14,9 +14,6 @@ import { Location } from '@angular/common';
 import { calculateViewDimensions, ViewDimensions } from '../common/view-dimensions.helper';
 import { ColorHelper } from '../common/color.helper';
 import { BaseChartComponent } from '../common/base-chart.component';
-declare var module: {
-   id: string;
-};
 
 @Component({
   selector: 'ngx-charts-advanced-pie-chart',
@@ -62,12 +59,11 @@ declare var module: {
     </div>
   `,
   styleUrls: [
-    '../common/base-chart.component.css',
-    './advanced-pie-chart.component.css'
+    '../common/base-chart.component.scss',
+    './advanced-pie-chart.component.scss'
   ],
   encapsulation: ViewEncapsulation.None,
-  changeDetection: ChangeDetectionStrategy.OnPush,
-  moduleId: module.id
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class AdvancedPieChartComponent extends BaseChartComponent {
 

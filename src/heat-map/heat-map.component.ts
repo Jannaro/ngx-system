@@ -12,9 +12,6 @@ import d3 from '../d3';
 import { BaseChartComponent } from '../common/base-chart.component';
 import { calculateViewDimensions, ViewDimensions } from '../common/view-dimensions.helper';
 import { ColorHelper } from '../common/color.helper';
-declare var module: {
-   id: string;
-};
 
 @Component({
   selector: 'ngx-charts-heat-map',
@@ -65,9 +62,8 @@ declare var module: {
     </ngx-charts-chart>
   `,
   changeDetection: ChangeDetectionStrategy.OnPush,
-  styleUrls: ['../common/base-chart.component.css'],
-  encapsulation: ViewEncapsulation.None,
-  moduleId: module.id
+  styleUrls: ['../common/base-chart.component.scss'],
+  encapsulation: ViewEncapsulation.None
 })
 export class HeatMapComponent extends BaseChartComponent {
 

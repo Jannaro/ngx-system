@@ -14,9 +14,6 @@ import d3 from '../d3';
 import { BaseChartComponent } from '../common/base-chart.component';
 import { calculateViewDimensions } from '../common/view-dimensions.helper';
 import { ColorHelper } from '../common/color.helper';
-declare var module: {
-   id: string;
-};
 
 @Component({
   selector: 'ngx-charts-tree-map',
@@ -34,10 +31,9 @@ declare var module: {
       </svg:g>
     </ngx-charts-chart>
   `,
-  styleUrls: ['./tree-map.component.css'],
+  styleUrls: ['./tree-map.component.scss'],
   encapsulation: ViewEncapsulation.None,
-  changeDetection: ChangeDetectionStrategy.OnPush,
-  moduleId: module.id
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class TreeMapComponent extends BaseChartComponent {
 

@@ -16,9 +16,6 @@ import { ColorHelper } from '../common/color.helper';
 import { BaseChartComponent } from '../common/base-chart.component';
 import { id } from '../utils/id';
 import d3 from '../d3';
-declare var module: {
-   id: string;
-};
 
 @Component({
   selector: 'ngx-charts-line-chart',
@@ -122,10 +119,9 @@ declare var module: {
       </svg:g>
     </ngx-charts-chart>
   `,
-  styleUrls: ['../common/base-chart.component.css'],
+  styleUrls: ['../common/base-chart.component.scss'],
   encapsulation: ViewEncapsulation.None,
-  changeDetection: ChangeDetectionStrategy.OnPush,
-  moduleId: module.id
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class LineChartComponent extends BaseChartComponent {
 

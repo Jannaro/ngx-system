@@ -14,9 +14,6 @@ import { calculateViewDimensions, ViewDimensions } from '../common/view-dimensio
 import { ColorHelper } from '../common/color.helper';
 import { BaseChartComponent } from '../common/base-chart.component';
 import d3 from '../d3';
-declare var module: {
-   id: string;
-};
 
 @Component({
   selector: 'ngx-charts-bar-vertical',
@@ -65,9 +62,8 @@ declare var module: {
     </ngx-charts-chart>
   `,
   changeDetection: ChangeDetectionStrategy.OnPush,
-  styleUrls: ['../common/base-chart.component.css'],
-  encapsulation: ViewEncapsulation.None,
-  moduleId: module.id
+  styleUrls: ['../common/base-chart.component.scss'],
+  encapsulation: ViewEncapsulation.None
 })
 export class BarVerticalComponent extends BaseChartComponent {
 

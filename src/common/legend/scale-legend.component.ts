@@ -2,9 +2,6 @@ import {
   Component, Input, OnChanges, ChangeDetectionStrategy, SimpleChanges, ViewEncapsulation
 } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
-declare var module: {
-   id: string;
-};
 
 @Component({
   selector: 'ngx-charts-scale-legend',
@@ -25,10 +22,9 @@ declare var module: {
       </div>
     </div>
   `,
-  styleUrls: ['./scale-legend.component.css'],
+  styleUrls: ['./scale-legend.component.scss'],
   encapsulation: ViewEncapsulation.None,
-  changeDetection: ChangeDetectionStrategy.OnPush,
-  moduleId: module.id
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ScaleLegendComponent implements OnChanges {
 

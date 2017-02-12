@@ -6,9 +6,6 @@ import {
 import { Location } from '@angular/common';
 import d3 from '../../d3';
 import { id } from '../../utils/id';
-declare var module: {
-   id: string;
-};
 
 @Component({
   selector: 'g[ngx-charts-timeline]',
@@ -33,10 +30,9 @@ declare var module: {
       <svg:g class="brush"></svg:g>
     </svg:g>
   `,
-  styleUrls: ['./timeline.component.css'],
+  styleUrls: ['./timeline.component.scss'],
   encapsulation: ViewEncapsulation.None,
-  changeDetection: ChangeDetectionStrategy.OnPush,
-  moduleId: module.id
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class Timeline implements OnChanges {
 

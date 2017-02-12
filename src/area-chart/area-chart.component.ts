@@ -16,9 +16,6 @@ import { ColorHelper } from '../common/color.helper';
 import { BaseChartComponent } from '../common/base-chart.component';
 import { id } from '../utils/id';
 import d3 from '../d3';
-declare var module: {
-   id: string;
-};
 
 @Component({
   selector: 'ngx-charts-area-chart',
@@ -124,9 +121,8 @@ declare var module: {
     </ngx-charts-chart>
   `,
   changeDetection: ChangeDetectionStrategy.OnPush,
-  styleUrls: ['../common/base-chart.component.css'],
-  encapsulation: ViewEncapsulation.None,
-  moduleId: module.id
+  styleUrls: ['../common/base-chart.component.scss'],
+  encapsulation: ViewEncapsulation.None
 })
 export class AreaChartComponent extends BaseChartComponent {
 

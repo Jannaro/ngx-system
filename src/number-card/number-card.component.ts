@@ -11,9 +11,6 @@ import { BaseChartComponent } from '../common/base-chart.component';
 import { calculateViewDimensions, ViewDimensions } from '../common/view-dimensions.helper';
 import { ColorHelper } from '../common/color.helper';
 import { gridLayout } from '../common/grid-layout.helper';
-declare var module: {
-   id: string;
-};
 
 @Component({
   selector: 'ngx-charts-number-card',
@@ -31,10 +28,9 @@ declare var module: {
       </svg:g>
     </ngx-charts-chart>
   `,
-  styleUrls: ['../common/base-chart.component.css'],
+  styleUrls: ['../common/base-chart.component.scss'],
   encapsulation: ViewEncapsulation.None,
-  changeDetection: ChangeDetectionStrategy.OnPush,
-  moduleId: module.id
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class NumberCardComponent extends BaseChartComponent {
 

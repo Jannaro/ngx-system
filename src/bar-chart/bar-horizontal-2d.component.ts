@@ -18,9 +18,6 @@ import { calculateViewDimensions, ViewDimensions } from '../common/view-dimensio
 import { ColorHelper } from '../common/color.helper';
 import { BaseChartComponent } from '../common/base-chart.component';
 import d3 from '../d3';
-declare var module: {
-   id: string;
-};
 
 @Component({
   selector: 'ngx-charts-bar-horizontal-2d',
@@ -82,7 +79,7 @@ declare var module: {
     </ngx-charts-chart>
   `,
   changeDetection: ChangeDetectionStrategy.OnPush,
-  styleUrls: ['../common/base-chart.component.css'],
+  styleUrls: ['../common/base-chart.component.scss'],
   encapsulation: ViewEncapsulation.None,
   animations: [
     trigger('animationState', [
@@ -94,8 +91,7 @@ declare var module: {
         animate(500, style({opacity: 0, transform: 'scale(0)'}))
       ])
     ])
-  ],
-  moduleId: module.id
+  ]
 })
 export class BarHorizontal2DComponent extends BaseChartComponent {
 

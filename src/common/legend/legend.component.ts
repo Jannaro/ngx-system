@@ -3,9 +3,6 @@ import {
   SimpleChanges, OnChanges, ChangeDetectorRef, NgZone, ViewEncapsulation
  } from '@angular/core';
 import { formatLabel } from '../label.helper';
-declare var module: {
-   id: string;
-};
 
 @Component({
   selector: 'ngx-charts-legend',
@@ -35,10 +32,9 @@ declare var module: {
       </div>
     </div>
   `,
-  styleUrls: ['./legend.component.css'],
+  styleUrls: ['./legend.component.scss'],
   encapsulation: ViewEncapsulation.None,
-  changeDetection: ChangeDetectionStrategy.OnPush,
-  moduleId: module.id
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class LegendComponent implements OnChanges {
 

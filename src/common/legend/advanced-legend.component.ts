@@ -10,9 +10,6 @@ import {
 } from '@angular/core';
 import { trimLabel } from '../trim-label.helper';
 import { formatLabel } from '../label.helper';
-declare var module: {
-   id: string;
-};
 
 @Component({
   selector: 'ngx-charts-advanced-legend',
@@ -57,10 +54,9 @@ declare var module: {
       </div>
     </div>
   `,
-  styleUrls: ['./advanced-legend.component.css'],
+  styleUrls: ['./advanced-legend.component.scss'],
   encapsulation: ViewEncapsulation.None,
-  changeDetection: ChangeDetectionStrategy.OnPush,
-  moduleId: module.id
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class AdvancedLegendComponent implements OnChanges  {
 
