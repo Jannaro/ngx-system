@@ -22,11 +22,13 @@
     "declarationDir": "release"
   },
   "files": [
-    "demo/bootstrap.ts",
-    "src/declarations.d.ts",
-    "src/index.ts"
+    "dist/demo/bootstrap.ts",
+    "dist/src/declarations.d.ts",
+    "dist/src/index.ts"
   ],
   "exclude": [
+    "demo",
+    "src",
     "node_modules"
   ],
   "compileOnSave": false,

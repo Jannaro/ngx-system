@@ -2,6 +2,9 @@
  
 var gulp = require('gulp');
 var util = require('gulp-util');
+var using = require('gulp-using')
+var merge = require('merge2');
+//var wait = require('gulp-wait')
 var sass = require('gulp-sass');
 var nodeSass = require('node-sass');
 var del = require('del');
@@ -39,6 +42,7 @@ function processStyle(path, ext, file, cb) {
 
 gulp.task('clean', function () {
   return del([
+    'dist/**/*.ts',
     'dist/**/*.js',
     'dist/**/*.js.map',
     'release/**/*.*'
@@ -52,14 +56,22 @@ gulp.task('sass', function () {
 });
  
 gulp.task("tsc", function () {
-  var tsResult = gulp.src('./+(src|demo)/**/*.ts')
+  var tsResult = gulp.src('./dist/**/*.ts')
+    //.pipe(using())
     .pipe(sourcemaps.init())
-    .pipe(inlineTemplate(inlineOptions))
     .pipe(tsProject());
-  return [tsResult.dts.pipe(gulp.dest("./release")),
-    tsResult.js.pipe(sourcemaps.write('.')).pipe(gulp.dest("./dist"))];
+  return merge([
+    tsResult.js.pipe(sourcemaps.write('.')).pipe(gulp.dest("./dist")),
+    tsResult.dts.pipe(gulp.dest("./release"))
+  ]);
+});
+
+gulp.task("inline", function () {
+  var tsResult = gulp.src('./+(src|demo)/**/*.ts')
+    .pipe(inlineTemplate(inlineOptions))
+    .pipe(gulp.dest("./dist"));
 });
 
 gulp.task('build', function (done) {
-  return runSequence('tsc', done);
+  return runSequence('inline', 'tsc', done);
 });
