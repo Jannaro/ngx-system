@@ -27,7 +27,8 @@
     "del": "^2.2.2",
     "fs-extra": "^1.0.0",
     "gh-pages": "^0.11.0",
-    "gulp": "^3.9.1",
+    "gulp": "github:gulpjs/gulp#4.0",
+    "gulp-changed": "^2.0.0",
     "gulp-inline-ng2-template": "^4.0.0",
     "gulp-rename": "^1.2.2",
     "gulp-sass": "^3.1.0",
@@ -66,12 +67,9 @@
     "zone.js": "0.7.4"
   },
   "scripts": {
-    "start": "gulp build && lite-server",
-    "lite": "lite-server",
+    "start": "gulp build && concurrently \"gulp watch\" \"lite-server\" ",
     "build": "gulp build",
-    "tsc": "tsc",
-    "tsc:w": "tsc -w",
-    "cmd": "npm typescript",
+    "lite": "lite-server",
     "getNpmVersion": "npm -v",
     "getNodeVersion": "node -v",
     "updateNpm": "npm install npm@latest"

@@ -4,14 +4,13 @@ var gulp = require('gulp');
 var util = require('gulp-util');
 var using = require('gulp-using')
 var merge = require('merge2');
-//var wait = require('gulp-wait')
 var sass = require('gulp-sass');
 var nodeSass = require('node-sass');
 var del = require('del');
-var runSequence = require('run-sequence');
 var ts = require("gulp-typescript");
 var sourcemaps = require('gulp-sourcemaps');
 var inlineTemplate = require('gulp-inline-ng2-template');
+const changed = require('gulp-changed');
 
 var tsProject = ts.createProject("tsconfig.json"); 
 const inlineOptions = {
@@ -66,12 +65,38 @@ gulp.task("tsc", function () {
   ]);
 });
 
+gulp.task("tscm", function () {
+  var tsResult = gulp.src(['./dist/**/*.ts', '!./dist/**/*.d.ts'])
+    .pipe(changed("./dist", {extension: '.js'}))
+    .pipe(using())
+    .pipe(sourcemaps.init())
+    .pipe(tsProject());
+  return merge([
+    tsResult.js.pipe(sourcemaps.write('.')).pipe(gulp.dest("./dist")),
+    tsResult.dts.pipe(gulp.dest("./release"))
+  ]);
+});
+
 gulp.task("inline", function () {
-  var tsResult = gulp.src('./+(src|demo)/**/*.ts')
+  return gulp.src('./+(src|demo)/**/*.ts')
     .pipe(inlineTemplate(inlineOptions))
     .pipe(gulp.dest("./dist"));
 });
 
-gulp.task('build', function (done) {
-  return runSequence('inline', 'tsc', done);
+gulp.task("inlinem", function () {
+  return gulp.src('./+(src|demo)/**/*.ts')
+    .pipe(changed("./dist"))
+    .pipe(inlineTemplate(inlineOptions))
+    .pipe(gulp.dest("./dist"));
 });
+
+gulp.task('build', gulp.series('inline', 'tsc', function (done) {
+  done();
+}));
+
+gulp.task('watch', function () {
+    gulp.watch('./+(src|demo)/**/*.ts', gulp.series('inlinem', 'tscm'));
+});
+
+
+
